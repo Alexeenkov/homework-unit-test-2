@@ -1,28 +1,19 @@
-import showHealthLevel from '../app';
+import sortByHealth from '../app';
 
-test('the result of determining the character`s health level', () => {
-  const inputHealthy = {
-    name: 'Маг',
-    health: 90,
-  };
-  const inputWounded = {
-    name: 'Маг',
-    health: 45,
-  };
-  const inputCritical = {
-    name: 'Маг',
-    health: 10,
-  };
+test('charaters sort by health', () => {
+  const input = [
+    { name: 'мечник', health: 10 },
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+  ];
 
-  const expectedHealthy = 'healthy';
-  const expectedWounded = 'wounded';
-  const expectedCritical = 'critical';
+  const expected = [
+    { name: 'маг', health: 100 },
+    { name: 'лучник', health: 80 },
+    { name: 'мечник', health: 10 },
+  ];
 
-  const receivedHealthy = showHealthLevel(inputHealthy);
-  const receivedWounded = showHealthLevel(inputWounded);
-  const receivedCritical = showHealthLevel(inputCritical);
+  const received = sortByHealth(input);
 
-  expect(receivedHealthy).toBe(expectedHealthy);
-  expect(receivedWounded).toBe(expectedWounded);
-  expect(receivedCritical).toBe(expectedCritical);
+  expect(received).toEqual(expected);
 });
