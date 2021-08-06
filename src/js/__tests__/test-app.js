@@ -15,7 +15,7 @@ test('charaters sort by health (with .toBe())', () => {
 
   const received = sortByHealth(input);
 
-  expect(received).toBe(expected);
+  expect(received).not.toBe(expected);
   /* .toBe() используется для сравнения примитивных значений или проверки
   референциальной идентичности экземпляров объекта. Он вызывает Object.is
   для сравнения значений. Не работает для сравнения объектов. */
